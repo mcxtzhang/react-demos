@@ -10,16 +10,18 @@
     <script type="text/babel">
 var LikeButton = React.createClass({
   getInitialState: function() {
-    return {liked: false};
+    return {liked: false, name:"mcxtzhang"};
   },
   handleClick: function(event) {
-    this.setState({liked: !this.state.liked});
+    this.setState({liked: !this.state.liked , 
+	name : ("mcxtzhang"==this.state.name)? "zhangxutong":"mcxtzhang"});
   },
   render: function() {
     var text = this.state.liked ? 'like' : 'haven\'t liked';
     return (
       <p onClick={this.handleClick}>
         You {text} this. Click to toggle.
+		And your name is {this.state.name}
       </p>
     );
   }

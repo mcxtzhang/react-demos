@@ -9,14 +9,15 @@
     <div id="example"></div>
     <script type="text/babel">
 var MyComponent = React.createClass({
-  handleClick: function() {
-    this.refs.myTextInput.focus();
+  onClickListener: function() {
+    this.refs.onlyAAlias.focus();
+alert("由 ref为DOM节点控件定义了一个别名，然后通过this.refs.别名 访问这个控件");
   },
   render: function() {
     return (
       <div>
-        <input type="text" ref="myTextInput" />
-        <input type="button" value="Focus the text input" onClick={this.handleClick} />
+        <input type="text" ref="onlyAAlias" />
+        <input type="button" value="Focus the text input" onClick={this.onClickListener} />
       </div>
     );
   }
