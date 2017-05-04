@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+    <script src="../build/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+	var GankBean = React.createClass({
+	getInitialState:function(){
+		return{
+			description:"",
+			linkUrl:""
+		};
+	},
+	
+	
+	componentDidMount:function(){
+	$.get(this.props.where, function(result){
+		var child = result["results"][0];
+		this.setState({
+		description:child.desc,
+			linkUrl:child.url
+		});
+	}.bind(this));
+	},
+	
+	render : function(){
+		return (<div>
+		The desc is : {this.state.description}.<a href={this.state.linkUrl}>click to test url</a>
+		</div>);
+	}
+	
+	});
+	
+	
+	ReactDOM.render(<GankBean where="http://gank.io/api/data/Android/10/1"/>,document.getElementById('example'));
+    </script>
+  </body>
+</html>

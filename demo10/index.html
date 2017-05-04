@@ -16,16 +16,16 @@
         },
 
         componentDidMount: function () {
-          this.timer = setInterval(function () {
+          this.timer = setInterval(function (param) {
             var opacity = this.state.opacity;
-            opacity -= .05;
+            opacity -= param;
             if (opacity < 0.1) {
               opacity = 1.0;
             }
             this.setState({
               opacity: opacity
             });
-          }.bind(this), 100);
+          }.bind(this,0.5), 100);
         },
 
         render: function () {
