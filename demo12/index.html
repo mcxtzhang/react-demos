@@ -33,9 +33,9 @@ var RepoList = React.createClass({
     }
     else {
       var repos = this.state.data.items;
-      var repoList = repos.map(function (repo, index) {
+      var repoList = repos.map(function (repo) {
         return (
-          <li key={index}><a href={repo.html_url}>{repo.name}</a> ({repo.stargazers_count} stars) <br/> {repo.description}</li>
+          <li ><a href={repo.html_url}>{repo.name}</a> ({repo.stargazers_count} stars) <br/> {repo.description}</li>
         );
       });
       return (
