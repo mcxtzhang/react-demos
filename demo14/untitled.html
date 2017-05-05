@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+    var AutoAddView  = React.createClass({
+    getInitialState : function(){
+
+      return {
+          datas : [{name:"one"},{name:"two"}]
+      };
+    },
+
+    handleClick : function(){
+    var list2 = this.state.datas;
+    list2.push({name:"hahah"});
+    this.setState({datas: list2});
+    //alert("sss");
+    },
+
+
+        render : function(){
+            var dataList = this.state.datas.map(function(data,key){
+              return <input value={data.name + key +", the array length is " +this.state.datas.length}></input> 
+            }.bind(this));
+
+            return (
+            <p>{dataList}
+            <button onClick={this.handleClick}>click me to +1s</button>
+            </p>
+            );
+        }
+    });
+
+    ReactDOM.render(
+    <AutoAddView />
+    ,document.getElementById("example"));
+
+    </script>
+  </body>
+</html>
+
