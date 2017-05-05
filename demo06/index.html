@@ -9,7 +9,7 @@
     <div id="example"></div>
     <script type="text/babel">
 
-      var data = 123;
+      var data = "123";
 
       var MyTitle = React.createClass({
         propTypes: {
@@ -22,7 +22,7 @@
       });
 
       ReactDOM.render(
-        <MyTitle title={data} />,
+        <MyTitle title={data}/>,
         document.getElementById('example')
       );
 
